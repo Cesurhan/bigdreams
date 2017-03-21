@@ -1,5 +1,5 @@
 <% if user_signed_in? && current_user.admin?%>
-<h1>Edit Dream</h1>
+<h1 class="text-center">Edit Dream</h1>
   <%= render "form" %>
 <%else%>
   <h1><%= "Seems like you are not a dream catcher!" %></h1>
