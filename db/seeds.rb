@@ -2,7 +2,8 @@
 # User.delete.all
 
 # Users
-user1 = User.create!(email: 'fake@bigdreams.com', password: 'qwe123')
+user1 = User.create!(email: 'ces@bigdreams.com', password: 'qwe123')
+user2 = User.create!(email: 'fake@bigdreams.com', password: 'qwe123')
 
 puts "#{User.all.size} users created"
 
