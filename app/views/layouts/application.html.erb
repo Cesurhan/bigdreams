@@ -29,9 +29,12 @@
           </button>
         </div>
       <%end%>
-
-      <%= yield %>
-    </div>
-
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-12 col-md-9">
+          <%= yield %>
+        </div>
+        <%= render "shared/shopping_cart"%>
+      </div>
+    </div>    
   </body>
 </html>
