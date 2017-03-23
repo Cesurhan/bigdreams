@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Cloudinary
+gem 'cloudinary', '1.2.3'
 #Carrierwave
 gem 'carrierwave', '0.11.2'
 # Use Devise for authentication
@@ -47,6 +49,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'selenium-webdriver', '~> 2.53'
   gem 'capybara'
+  gem 'factory_girl_rails', '4.7.0'
+  gem 'faker', '1.6.6'
 end
 
 group :development do
