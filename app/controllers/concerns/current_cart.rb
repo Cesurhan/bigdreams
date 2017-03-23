@@ -1,4 +1,4 @@
-Module CurrentCart
+module CurrentCart
 	extend ActiveSupport::Concern
 
 	private
@@ -6,5 +6,4 @@ Module CurrentCart
 			session[:shopping_cart] ||= []
 			@cart = ShoppingCart.new(session[:shopping_cart])
 		end
-
 end

@@ -1,9 +1,10 @@
 class ShoppingCartController < ApplicationController
-  include current_cart
+  include CurrentCart
   before_action :set_cart
 
   def create
     @product = Product.find(params[:product_id])
     @cart.add_item(@product)
-    redirect_to root_path, notice "Product has been added to your cart! Yeey!"
+    redirect_to products_path, notice: "Product has been added to your cart! Yeey!"
   end
+end
