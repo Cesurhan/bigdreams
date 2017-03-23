@@ -1,9 +1,14 @@
 <div class"col-6 col-md-3 sidebar-offcanvas" id="sidebar">
   <div class="sidebar-module sidebar-module-inset shopping-cart">
     <h4>Shopping Cart</h4>
-      <p>2 x Eat cheese</p>
-      <p>1 x Go to the NorthPole</p>
-      <p>1 x Be Superman</p>
-      <p>10 x Be an awesome Coder</p>
+    <% if @items.present? %>
+      <%= @items.each do |item| %>
+          <p><%= item.name %></p>
+          <p><%= item.price %></p>
+          <p><%= item.amount %></p>
+        <%end%>
+    <% else %>
+          <p>Empty cart!</p>
+    <% end %>
   </div>
 </div>
