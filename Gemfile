@@ -43,6 +43,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Use RSpec for testing
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'selenium-webdriver', '~> 2.53'
+  gem 'capybara'
 end
 
 group :development do
@@ -55,7 +57,7 @@ group :development do
 end
 # Use Capybara for testing
 group :test do
-  gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
