@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Cloudinary
+gem 'cloudinary', '1.2.3'
 #Carrierwave
 gem 'carrierwave', '0.11.2'
 # Use Devise for authentication
