@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @items = @cart
-  
   end
 
   def show; end

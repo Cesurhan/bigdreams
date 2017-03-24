@@ -1,10 +1,6 @@
 module CurrentCart
 	extend ActiveSupport::Concern
 
-	def add
-			session[:product_id]=@product.id
-	end 
-
 	private
 		def set_cart
 			session[:shopping_cart] ||= []
