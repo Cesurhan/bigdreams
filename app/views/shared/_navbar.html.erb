@@ -15,49 +15,41 @@
       </ul>
 
     </div>
-    <div>
-      <%=
+    <div></div <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
 
-    link_to_if(!user_signed_in?, "Order", notice: "You must first sign in!")do
-       link_to("User order", {:controller => :orders, :action => 'create', :user_id => current_user.id }, :method => :create)
-     end
-  %>
+      <% if !user_signed_in? %>
+      <li class="session-links"><%= link_to "Log In", new_user_session_path %></li>
+      <li class="session-links"><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% else %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.has_profile? ? current_user.full_name : current_user.email  %>
+          <span class="caret"></span>
+        </a>
 
+        <ul class="dropdown-menu">
 
-    </div
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+          <% if current_user.has_profile? %>
+          <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
+        <% else %>
+          <li><%= link_to "Create Profile", new_profile_path %></li>
+          <% end %>
+          <li><%= link_to "Edit Password", edit_user_registration_path %></li>
+          <% if user_signed_in? && current_user.admin?%>
+          <li><%= link_to "Add Dreams", new_product_path %></li>
+          <%end%>
+          <li role="separator" class="divider"></li>
+          <li>
+            <%= link_to_if(!user_signed_in?, "Order", notice: "You must first sign in!")do link_to("Orders", {:controller => :orders, :action => 'create', :user_id => current_user.id }, :method => :create) end %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 
-        <% if !user_signed_in? %>
-        <li class="session-links"><%= link_to "Log In", new_user_session_path %></li>
-        <li class="session-links"><%= link_to "Sign Up", new_user_registration_path %></li>
-      <% else %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.has_profile? ? current_user.full_name : current_user.email  %>
-            <span class="caret"></span>
-          </a>
+        </ul>
 
-          <ul class="dropdown-menu">
-            <li role="separator" class="divider"></li>
-
-            <% if current_user.has_profile? %>
-            <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
-          <% else %>
-            <li><%= link_to "Create Profile", new_profile_path %></li>
-            <% end %>
-            <li><%= link_to "Edit Password", edit_user_registration_path %></li>
-            <% if user_signed_in? && current_user.admin?%>
-            <li><%= link_to "Add Dreams", new_product_path %></li>
-            <%end%>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
+      </li>
+      <% end %>
+    </ul>
   </div>
+  <!--/.nav-collapse -->
+</div>
 </nav>
