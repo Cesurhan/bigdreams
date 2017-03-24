@@ -2,7 +2,6 @@ class ShoppingCart
   attr_reader :items
 
 	def initialize(cart)
-    debugger
     @items = cart
 	end
 
