@@ -3,7 +3,6 @@ class ShoppingCartController < ApplicationController
   before_action :set_cart
 
   def create
-    debugger
     @product = Product.find(params[:product_id])
     @cart.add_item(@product)
     session[:shopping_cart] = @cart.items
