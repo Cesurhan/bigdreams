@@ -1,16 +1,15 @@
 <% if user_signed_in? && current_user.admin?%>
-<h1 class="text-center">New Dream</h1>
-  <%= render "form" %>
+<%= render "form" %>
 <%else%>
 <div class="row">
   <div class="col-sm-3">
-  <%= image_tag "http://hellogiggles.com/wp-content/uploads/2015/11/30/o-DAWSONS-CREEK-REUNION-facebook.jpg", style: "width:20em"%>
+    <%= image_tag "http://hellogiggles.com/wp-content/uploads/2015/11/30/o-DAWSONS-CREEK-REUNION-facebook.jpg", style: "width:20em"%>
   </div>
-    <div class="col-sm-9">
-      <h1>
-        <%= "Seems like you are not a dream catcher!" %>
-      </h1>
+  <div class="col-sm-9">
+    <h1>
+      <%= "Seems like you are not a dream catcher!" %>
+    </h1>
 
-    </div>
+  </div>
 </div>
 <%end%>

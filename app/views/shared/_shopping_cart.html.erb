@@ -1,21 +1,23 @@
-<div class"col-6 col-md-2  sidebar-offcanvas" id="sidebar">
-  <div class="sidebar-module sidebar-module-inset shopping-cart">
-    <h4>Shopping Cart</h4>
-    <% if @items.present? %>
-    <%= @items.each do |item| %>
-    <p><%= item.product.name %></p>
-    <p><%= item.amount %></p>
-    <p><%= item.product.price %></p>
-    <%end%>
-  <% else %>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <p>Empty cart!</p>
-    <% end %>
+<div class="container">
+  <div class"col-6 col-md-2  sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-module sidebar-module-inset shopping-cart">
+      <h4>Shopping Cart</h4>
+      <% if @items.present? %>
+      <%= @items.each do |item| %>
+      <p><%= item.product.name %></p>
+      <p><%= item.amount %></p>
+      <p><%= item.product.price %></p>
+      <%end%>
+    <% else %>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <p>Empty cart!</p>
+      <% end %>
+    </div>
   </div>
 </div>
