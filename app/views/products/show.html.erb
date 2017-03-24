@@ -1,19 +1,21 @@
 <hr>
 <div class="row">
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-12">
     <%= image_tag @product.photo, style: 'height:20em'%>
     <div class="caption">
       <h3><%= @product.name %></h3>
       <p><%= "€#{@product.price}"%></p>
       <p><%= @product.description%></p>
-      <p>
-        <a href="#" class="btn btn-primary" role="button">Add to Cart</a>
-        <% if user_signed_in? && current_user.admin?%>
-        <%= link_to "Edit", edit_product_path, class:"btn btn-primary"%>
-        <%= link_to "Delete", product_path(@product.id), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger"%>
-      </div>
-      <%end%><%= link_to "Back", products_path, class:"btn btn-default"%>
-    </p>
+      <a href="#" class="btn btn-primary">Add to Cart
+      </a>
+
+      <% if user_signed_in? && current_user.admin?%>
+      <%= link_to "Edit", edit_product_path, class:"btn btn-primary"%>
+      <%= link_to "Delete", product_path(@product.id), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger"%>
+    </div>
+    <%end%>
+
+    <%= link_to "Back", products_path, class:"btn btn-default"%>
+
   </div>
-  <%= render "shared/shopping_cart"%>
 </div>
