@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_cart, only:[:index]
+
+  before_action :set_cart, only:  [:index, :show]
+
   def index
     @products = Product.all
     if params[:search]
@@ -12,7 +14,6 @@ class ProductsController < ApplicationController
     @items = @cart.items
   end
 
-  def show; end
 
   def new
     @product = Product.new
