@@ -1,0 +1,29 @@
+<h1> Thank your for shopping with BigDreams </h1>
+<h3>Ordernumber <%= @order.id %></h3>
+<p><%= @order.created_at.to_formatted_s(:long) %></p>
+<table class="table table-striped table-hover">
+  <thead class="thead-inverse">
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th class="text-right">Total</th>
+  </thead>
+  <tbody>
+    <% @order.orderitems.each do |orderitem| %>
+      <% product_total_price = orderitem.price * orderitem.quantity %>
+          <tr>
+            <td><%= Product.find(orderitem.product_id).name %></td>
+            <td><%= orderitem.quantity %></td>
+            <td><%= number_to_currency(orderitem.price, precision: 2, separator: ',', unit: '€ ')%></td>
+            <td class="text-right"><%= number_to_currency(product_total_price, precision: 2, separator: ',', unit: '')%></td>
+          </tr>
+    <% end %>
+    <thead>
+      <td ><strong>Total</strong></td>
+      <td></td>
+      <td></td>
+      <td class="text-right"><strong><%= number_to_currency(@order.total_price, precision: 2, separator: ',', unit: '€ ') %></strong></td>
+    </thead>
+  </tbody>
+</table>
+<%= link_to "Back", user_orders_path, class: "btn btn-success" %>

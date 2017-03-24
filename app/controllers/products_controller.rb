@@ -13,6 +13,10 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def show
+    @items = @cart.items
+  end
+  
   def create
     @product = Product.new(product_params)
     if @product.save

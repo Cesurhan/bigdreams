@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only:  [:index, :show, :create]
   def index
       @orders = Order.where("user_id = ?", current_user.id)
   end
@@ -13,11 +15,11 @@ class OrdersController < ApplicationController
     if @order.valid?
       orderitems = []
       total_price = 0
-      @shopping_cart.items.each do |product, amount|
-        current_orderitem = Orderitem.create(product: Product.find(product.to_i),
-        amount: amount, price: Product.find(product.to_i).price)
+      @cart.items.each do |product|
+        current_orderitem = Orderitem.create(product: Product.find(product["product_id"]),
+        quantity: product["amount"], price: Product.find(product["product_id"]).price)
         orderitems << current_orderitem
-        total_price += current_orderitem.amount * current_orderitem.price
+        total_price += current_orderitem.quantity * current_orderitem.price
       end
       @order.orderitems = orderitems
       @order.total_price = total_price
