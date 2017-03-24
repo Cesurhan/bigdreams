@@ -1,4 +1,4 @@
-<!-- Static navbar -->
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <!-- Static navbar -->
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
@@ -10,7 +10,7 @@
 
       <ul class="nav navbar-nav">
         <li>
-          <a href="/">Bigdreams</a>
+          <a id="brand-name" href="/">Bigdreams</a>
         </li>
       </ul>
 
@@ -29,8 +29,8 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if !user_signed_in? %>
-        <li><%= link_to "Log In", new_user_session_path %></li>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li class="session-links"><%= link_to "Log In", new_user_session_path %></li>
+        <li class="session-links"><%= link_to "Sign Up", new_user_registration_path %></li>
       <% else %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

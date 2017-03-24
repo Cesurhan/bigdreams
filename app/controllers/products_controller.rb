@@ -1,10 +1,16 @@
 class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   before_action :set_cart, only:  [:index, :show]
 
   def index
     @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.all.order("created_at DESC")
+    end
     @items = @cart.items
   end
 
