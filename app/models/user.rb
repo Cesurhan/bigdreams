@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_one :profile
 
+  validates :email, presence: true
+  validates :password, presence: true
+
   def has_profile?
     profile.present? && !profile.id.nil?
   end
