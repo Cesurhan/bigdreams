@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only:[:index]
 
   def index
     @products = Product.all
-    @items = @cart
+    @items = @cart.items
   end
 
   def show; end
@@ -15,7 +16,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to @product, notice: 'Dream Created!'
     else
