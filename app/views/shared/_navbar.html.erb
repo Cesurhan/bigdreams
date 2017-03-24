@@ -15,6 +15,16 @@
       </ul>
 
     </div>
+    <div>
+      <%=
+
+    link_to_if(!user_signed_in?, "Order", notice: "You must first sign in!")do
+       link_to("User order", {:controller => :orders, :action => 'create', :user_id => current_user.id }, :method => :create)
+     end
+  %>
+
+
+    </div
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
 
