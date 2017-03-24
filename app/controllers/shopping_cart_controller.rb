@@ -2,14 +2,11 @@ class ShoppingCartController < ApplicationController
   include CurrentCart
   before_action :set_cart
 
-  def add
-    session[:shopping_cart] << 'product_id'    
-  end
-
-
   def create
+    debugger
     @product = Product.find(params[:product_id])
-    @cart.add_item(@product,1)
+    @cart.add_item(@product)
+    session[:shopping_cart] = @cart.items
     redirect_to products_path, notice: "Product has been added to your cart! Yeey!"
   end
 
