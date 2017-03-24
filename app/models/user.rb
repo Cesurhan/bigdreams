@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+  has_many :orders, dependent: :destroy
+
+  validates :email, presence: true
+  validates :password, presence: true
 
   def has_profile?
     profile.present? && !profile.id.nil?
