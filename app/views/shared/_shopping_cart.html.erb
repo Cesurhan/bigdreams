@@ -2,10 +2,8 @@
   <div class="sidebar-module sidebar-module-inset shopping-cart">
     <h4>Shopping Cart</h4>
     <% if @items.present? %>
-      <%= @items.each do |item| %>
-          <p><%= item.product.name %></p>
-          <p><%= item.amount %></p>
-          <p><%= item.product.price %></p>
+      <% @items.each do |item| %>
+          <p><%=Product.find(item["product_id"]).name %> </p> : <p><%=item["amount"] %></p>
         <%end%>
     <% else %>
           <p>Empty cart!</p>

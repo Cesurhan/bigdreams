@@ -2,12 +2,8 @@ class ShoppingCart
   attr_reader :items
 
 	def initialize(cart)
-		@items = []
-
-		cart.each do |item|
-			product = Product.find(item[“product_id”])
-			add_item(product, items[“amount”])
-		end
+    debugger
+    @items = cart
 	end
 
 	def add_item(product, amount=1)
