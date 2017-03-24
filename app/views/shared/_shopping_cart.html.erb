@@ -12,6 +12,7 @@
     <% else %>
       <p>Empty cart!</p>
       <% end %>
+      <p><%= link_to_if(!user_signed_in?, "Order", notice: "You must first sign in!")do link_to("Order", {:controller => :orders, :action => 'create', :user_id => current_user.id }, :method => :create, class:"btn btn-success btn-xs") end %></p>
     </div>
   </div>
 </div>
