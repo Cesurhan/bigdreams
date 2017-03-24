@@ -10,31 +10,35 @@
 
   <body>
     <%= render "shared/navbar"%>
-
     <div class="container">
+      <div class="col-12 col-md-10">
+        <% if notice != nil %>
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <%= notice %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%end%>
+        <% if alert != nil %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <%= alert %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%end%>
+      </div>
 
-      <% if notice != nil %>
-      <div class="alert alert-success alert-dismissible" role="alert">
-        <%= notice %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%end%>
-      <% if alert != nil %>
-      <div class="alert alert-danger alert-dismissible" role="alert">
-        <%= alert %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%end%>
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-12 col-md-10">
           <%= yield %>
         </div>
-        <%= render "shared/shopping_cart"%>
       </div>
     </div>
   </body>
+</html>
+</div>
+</div>
+</body>
 </html>

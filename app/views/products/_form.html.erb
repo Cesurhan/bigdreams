@@ -1,26 +1,26 @@
-<div class="col-md-6 col-sm-offset-3">
-    <%= form_for @product do |f|%>
-    <div class="form-group">
-      <%= f.label "Add New Dream"%>
-      <%= f.text_field :name,  :class => 'form-control', :placeholder => 'Name',  autocomplete: "off" %>
-    </div>
-      <div class="form_group">
-        <%= f.label :description %>
-        <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description',  autocomplete: "off" %>
-      </div>
-      <div class="form_group">
-        <%= f.label :price %>
-        <%= f.number_field :price, :class => 'form-control', :placeholder => 'Price',  autocomplete: "off" %>
-      </div>
-      <div class="form_group">
-        <%= f.label :photo %>
-        <%= f.text_field :photo, :class => 'form-control', :placeholder => 'Photo',  autocomplete: "off" %>
-      </div>
-      <hr>
+<div class="col-md-6 col-sm-offset-4">
+  <%= form_for @product do |f|%>
+  <div class="form-group">
+    <%= f.label "Add New Dream"%>
+    <%= f.text_field :name,  :class => 'form-control', :placeholder => 'Name',  autocomplete: "off" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :description %>
+    <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description',  autocomplete: "off" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :price %>
+    <%= f.number_field :price, :class => 'form-control', :placeholder => 'Price',  autocomplete: "off" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :photo %>
+    <%= f.text_field :photo, :class => 'form-control', :placeholder => 'Photo',  autocomplete: "off" %>
+  </div>
+  <hr>
 
-      <div class="actions">
-        <%= link_to "Back", products_path, class: "btn btn-default" %>
-        <%= f.submit (@product.new_record? ? "Add" : "Update"), :class => "btn btn-primary" %>
-      </div>
-      <% end %>
+  <div class="actions">
+    <%= f.submit (@product.new_record? ? "Add" : "Update"), :class => "btn btn-primary" %>
+    <%= link_to "Back", products_path, class: "btn btn-default" %>
+  </div>
+  <% end %>
 </div>

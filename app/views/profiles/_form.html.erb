@@ -1,35 +1,36 @@
-<%= form_for @profile do |f| %>
+<div class="col-md-6 col-sm-offset-4">
+  <%= form_for @profile do |f| %>
   <% @profile.errors.full_messages.each do |msg| %>
-    <p class="alert alert-danger"><%= msg %></p>
+  <p class="alert alert-danger"><%= msg %></p>
   <% end %>
 
   <div class="form-group">
-    <label>First Name</label>
+    <%= f.label "First Name"%>
     <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Last Name</label>
+    <%= f.label "Last Name"%>
     <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Street</label>
+    <%= f.label "Street"%>
     <%= f.text_field :street, placeholder: "Street", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Postal Code</label>
+    <%= f.label "Postal Code"%>
     <%= f.text_field :postal_code, placeholder: "Postal Code", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>City</label>
+    <%= f.label "City"%>
     <%= f.text_field :city, placeholder: "City", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Country</label>
+    <%= f.label "Country"%>
     <%= f.text_field :country, placeholder: "Country", class: "form-control" %>
   </div>
 
@@ -37,4 +38,5 @@
     <%= f.submit "Save", class: "btn btn-primary" %>
     <%= link_to "Back", root_path, class: "btn btn-default" %>
   </div>
-<% end %>
+  <% end %>
+</div>
