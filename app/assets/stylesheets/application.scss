@@ -9,11 +9,25 @@ body {
     padding-top: 2em;
 }
 
+.dropdown {
+    font-size: 1.5em;
+}
+
+#brand-name {
+    font-size: 5em;
+    font-family: 'Indie Flower', cursive;
+    margin-left: -0.5em;
+}
+
+.session-links {
+    font-size: 1.5em;
+}
+
 .navbar-nav li a {
     // line-height: 150px;
     // height: 150px;
     padding-top: 0;
-    font-size: 140%;
+    font-size: 100%;
 }
 
 .navbar-nav {
@@ -26,7 +40,7 @@ body {
     background-color: #3097d1;
     margin-left: 71em;
     margin-right: -10em;
-    margin-top: -3em;
+    margin-top: -5em;
     border: 1px solid black;
     border-radius: 1%;
 }
@@ -44,6 +58,7 @@ body {
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
     color: #000;
+    margin-top: 0.1em;
     /*Sets the text hover color on navbar*/
 }
 
