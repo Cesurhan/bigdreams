@@ -10,7 +10,7 @@ class ShoppingCart
 		end
 	end
 
-	def add_item(product, amount=1)
+	def add_item(product, amount)
     item = CartItem.new(product, amount)
     @items << item
   end
