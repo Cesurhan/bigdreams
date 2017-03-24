@@ -1,7 +1,7 @@
 class ShoppingCart
   attr_reader :items
 
-	def initialise(cart)
+	def initialize(cart)
 		@items = []
 
 		cart.each do |item|
